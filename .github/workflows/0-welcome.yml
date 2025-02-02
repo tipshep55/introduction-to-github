@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - main 
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -26,20 +26,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - id: get_step
-        run: |
+        run google meet  camera eyes
+        
+      
           echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
 
   on_welcome:
-    name: On welcome
+    name: On welcome 
     needs: get_current_step
 
     # We will only run this action when:
-    # 1. This repository isn't the template repository.
+    # 1. This repositoryv  isn't the template repository.
     # 2. The step is currently 0.
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
-    # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
+    # Reference: https://docs.github.com/en/acgoo mm tions/learn-github-actions/expressions
     if: >-
       ${{ !github.event.repository.is_template
           && needs.get_current_step.outputs.current_step == 0 }}
@@ -49,8 +51,8 @@ jobs:
 
     steps:
       # We'll need to check out the repository so that we can edit README.md.
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout 
+        uses: action s/checkout@v  
         with:
           fetch-depth: 0 # Let's get all the branches.
 
